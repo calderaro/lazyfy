@@ -5,7 +5,7 @@ const SongSchema = Schema({
   name: String,
   duration: String,
   file: String,
-  album: {type: Schema.ObjectId, ref: 'Album'}
+  album: {type: Schema.ObjectId, ref: 'album'}
 })
 
 export default mongoose.model('song', SongSchema, 'songs')

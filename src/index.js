@@ -10,7 +10,7 @@ const app = express()
 const PORT = 8002
 const NODE_ENV = 'development'
 
-models('lazify').then(mongoose => {
+models('mean2').then(mongoose => {
   app
     .use(mongoose.middleware)
     .use(cors())
