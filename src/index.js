@@ -1,10 +1,10 @@
+import path from 'path'
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import {json, urlencoded} from 'body-parser'
 import models from './models/'
 import controllers from './controllers/'
-import os from 'os'
 
 const app = express()
 const PORT = 8002
@@ -17,7 +17,7 @@ models('lazify').then(mongoose => {
     .use(urlencoded({extended: false}))
     .use(json())
     .use(morgan('dev'))
-    .use('/uploads', express.static(os.tmpdir()))
+    .use('/uploads', express.static(path.join(__dirname, '../../uploads')))
     .get('/', (req, res) => res.send('lazify'))
     .use('/api', controllers)
     .listen(PORT)
